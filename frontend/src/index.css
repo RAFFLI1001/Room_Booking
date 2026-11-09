@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    @apply bg-gray-50 text-gray-900;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary-600 hover:bg-primary-700 text-white font-semibold py-2.5 px-5 rounded-lg transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  .btn-secondary {
+    @apply bg-white hover:bg-gray-50 text-gray-700 font-semibold py-2.5 px-5 rounded-lg border border-gray-300 transition-all duration-200;
+  }
+  .btn-danger {
+    @apply bg-red-600 hover:bg-red-700 text-white font-semibold py-2.5 px-5 rounded-lg transition-all duration-200;
+  }
+  .input-field {
+    @apply w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all;
+  }
+  .card {
+    @apply bg-white rounded-xl shadow-sm border border-gray-100;
+  }
+  .badge-confirmed {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800;
+  }
+  .badge-pending {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800;
+  }
+  .badge-cancelled {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800;
+  }
+  .badge-completed {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800;
+  }
+
+  /* Smooth horizontal scrollbar styling */
+  .horizontal-scrollbar {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    touch-action: pan-x pan-y;
+  }
+
+  /* Scrollbar halus hanya di layar ponsel/tablet */
+  @media (max-width: 768px) {
+    .horizontal-scrollbar {
+      scrollbar-width: thin;
+      scrollbar-color: #cbd5e1 #f8fafc;
+    }
+    .horizontal-scrollbar::-webkit-scrollbar {
+      height: 6px;
+    }
+    .horizontal-scrollbar::-webkit-scrollbar-track {
+      background: #f8fafc;
+      border-radius: 9999px;
+    }
+    .horizontal-scrollbar::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 9999px;
+    }
+    .horizontal-scrollbar::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8;
+    }
+  }
+
+  /* Di layar Desktop: Bersih total tanpa scrollbar horizontal */
+  @media (min-width: 769px) {
+    .horizontal-scrollbar {
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    .horizontal-scrollbar::-webkit-scrollbar {
+      display: none;
+      width: 0;
+      height: 0;
+    }
+  }
+}
